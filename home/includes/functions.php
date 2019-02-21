@@ -91,7 +91,8 @@ function clean($value){
 		$value = addslashes($value);
 		$value = mysqli_real_escape_string($connection, $value);
 	}
-	return $value;}
+	return $value;
+}
 
 
 
@@ -99,25 +100,33 @@ function clean($value){
 
 
 	function register(){
+		global $connection;
 		
 	if (isset($_POST['register'])){
+
 		if (!empty($_POST['lastname'])|| !empty($_POST['firstname'])|| !empty($_POST['email'])|| !empty($_POST['passwordone'])|| !empty($_POST['passwordtwo'])){
-		 $lastname = $_POST['lastname'];
-		 $firstname = $_POST['firstname'];
-		 $email = $_POST['email'];
-		 $passwordone = $_POST['passwordone'];
-		 $passwordtwo = $_POST['passwordtwo'];
-		 
+
+		 $lastname    =   clean($_POST['lastname']);
+		 $firstname   =   clean($_POST['firstname']);
+		 $email       =   clean($_POST['email']);
+		 $passwordone =   clean( $_POST['passwordone']);
+		 $passwordtwo =   clean($_POST['passwordtwo']);
+		 $time  	  =   date("y-m-d H:i:s");
+		
 		
 		
 			if ( $passwordone == $passwordtwo){ 
-		$sql = "INSERT INTO personnel (firstname, lastname, password, email ) VALUES ('$firstname', '$lastname', '$passwordtwo', '$email' ) ";
+				 
+
+					
+
+		$sql = "INSERT INTO personnel (firstname, lastname, password, email, log_in) VALUES ('$firstname', '$lastname', '$passwordtwo', '$email', '$time')";
 		$result = mysqli_query($connection, $sql);
 		if ($result ){
 
 			$messages = array();
 			$messages[] = "User added Sucessfully";
-				
+			
 				
 		
 		}else {
@@ -153,9 +162,10 @@ function clean($value){
 
 	}
 
-	
-	
-	
+
+
+
+
 	
 
 
@@ -163,5 +173,26 @@ function clean($value){
 
 
 	}
+
+
+	function logout(){
+
+
+		if (isset($_POST['logout'])){
+		session_destroy();
+		header ('location:index.php');
+		exit;
+		}
+
+		
+
+
+
+
+	}
+
+	
+	
+	
 ?>
 

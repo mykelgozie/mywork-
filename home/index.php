@@ -51,7 +51,7 @@
    
 <div class="row">
 <div class="col-xs-4 col-xs-offset-4 well">
-    <form class="form" method="post" action="index.php">
+  <form class="form" method="post" action="index.php">
       <?php entrance(); ?>
 
     <div class="form-group">

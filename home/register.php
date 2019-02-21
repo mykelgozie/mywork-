@@ -1,13 +1,14 @@
-<?php session_start();?>
+
 <?php include('includes/constant.php');?>
 <?php include('includes/connection.php');?>
+<?php include('includes/functions.php'); ?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>Xl Africa</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -39,7 +40,7 @@
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">Register</a></li>
+           
 
            
         </ul>
@@ -54,34 +55,34 @@
 <div class="col-xs-6 col-xs-offset-3 well">
     <form class="form" method="post" action="register.php">
 
-    <?php register (); ?>
+    <?php register(); ?>
       <div class="form-group">
         <label for="nameField">First Name</label>
-        <input type="text" class="form-control" id="nameField" name="firstname" placeholder="Your Name" />
+        <input type="text" class="form-control" id="nameField" name="firstname" placeholder="Your Name" required/>
       </div>
        
    
       <div class="form-group">
         <label for="nameField">Last Name</label>
-        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Your Name" />
+        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Your Name" required/>
       </div>
 
        <div class="form-group">
         <label for="nameField">Email</label>
-        <input type="email" class="form-control" id="nameField" name="email" placeholder="Your Email" />
+        <input type="email" class="form-control" id="nameField" name="email" placeholder="Your Email" required/>
       </div>
 
       <div class="form-group">
         <label for="nameField">Password</label>
-        <input type="password" class="form-control" id="password" name="passwordone" placeholder="password" />
+        <input type="password" class="form-control" id="password" name="passwordone" placeholder="password" required/>
       </div>
 
        <div class="form-group">
         <label for="nameField">Confirm Password</label>
-        <input type="password" class="form-control" id="password" name="passwordtwo" placeholder="password" />
+        <input type="password" class="form-control" id="password" name="passwordtwo" placeholder="password" required/>
       </div>
 
-        <button type="submit" class="btn btn-primary ">register</button>
+        <button type="submit" name="register" class="btn btn-primary ">register</button>
           <button type="reset" class="btn btn-default">cancel</button>
 
 

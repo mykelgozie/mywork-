@@ -41,7 +41,7 @@
 
 
             <?php 
-              if (isset($_SESSION['firstname'])) {
+              if (!isset($_SESSION['firstname'])) {
                 echo "  <li><a href='register.php'>Register</a></li>";
               } else {
 
@@ -49,8 +49,7 @@
               }
 
             ?>
-            <li><a href="register.php">Register</a></li>
-
+            
         </ul>
     </div>
     </div>
@@ -63,9 +62,9 @@
 <center>
   <h1> welcome to XL afric  <?php echo  $_SESSION['firstname']; ?></h1>
 
-  <form>
-    
-          <button type="submit" class="btn btn-primary ">logout</button>
+  <form action="admin.php" method="post">
+         <?php logout(); ?>
+          <button type="submit" name="logout" class="btn btn-primary ">logout</button>
           
   </form>
 
